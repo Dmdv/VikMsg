@@ -16,8 +16,8 @@ namespace VikaApi
 			    {"grant_type", "password"},
 			    {"client_id", "3071350"},
 			    {"client_secret", "ESudqlw1ZLBed6NRuI1N"},
-			    {"username", "dimos-d@yandex.ru"},
-			    {"password", "167390080$Perple$"},
+			    {"username", string.Empty},
+			    {"password", "string.Empty"},
 			    {"scope", "notify,friends,photos,audio,video,docs,notes,pages,wall,messages,notifications"}
 			};
 		}
@@ -28,7 +28,8 @@ namespace VikaApi
 			_params["password"] = password;
 
 			return _params.Aggregate(new StringBuilder(Path),
-			                         (res, pair) => res.AppendFormat(@"{0}={1}&", pair.Key, pair.Value)).ToString();
+			                         (res, pair) => res.AppendFormat(@"{0}={1}&", pair.Key, pair.Value),
+			                         x => x.Remove(x.Length - 1, 1).ToString());
 		}
 	}
 }

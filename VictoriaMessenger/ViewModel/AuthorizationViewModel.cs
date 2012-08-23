@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Net;
 using System.Windows;
 using Microsoft.Phone.Controls;
 using VictoriaMessenger.Commands;
@@ -10,16 +12,17 @@ namespace VictoriaMessenger.ViewModel
 	public class AuthorizationVm : BaseViewModel
 	{
 		// private const string AppId = "2416563";
-		private DelegateCommand<string> _executeLogin;
 		private string _login;
 		private string _password;
 
 		public AuthorizationVm()
 		{
-			_executeLogin = new DelegateCommand<string>(DoLogin, CanLogin);
-			Login = "dimos-d@yandex.ru";
-			Password = "167390080$Perple$";
+			ExecuteLogin = new DelegateCommand<string>(DoLogin, CanLogin);
+			Login = "";
+			Password = "";
 		}
+
+		public DelegateCommand<string> ExecuteLogin { get; set; }
 
 		public string Login
 		{
@@ -62,6 +65,18 @@ namespace VictoriaMessenger.ViewModel
 		private void DoLogin(string obj)
 		{
 			var query = Authorization.Query(Login, Password);
+			var httpWebRequest = WebRequest.Create(query);
+			httpWebRequest.Method = "GET";
+			httpWebRequest.BeginGetRequestStream(OnRequestCompleted, httpWebRequest);
+		}
+
+		private void OnRequestCompleted(IAsyncResult ar)
+		{
+			var asyncState = (HttpWebRequest)ar.AsyncState;
+			using (var reader = new StreamReader(asyncState.EndGetRequestStream(ar)))
+			{
+				string readToEnd = reader.ReadToEnd();
+			}
 		}
 
 		private bool CanLogin(string arg)

@@ -68,7 +68,8 @@
       <TextBox TextWrapping="Wrap" Text="TextBox" Grid.Row="3" BorderThickness="1" d:LayoutOverrides="Height"
                Grid.ColumnSpan="2" />
       <Button Content="Войти" d:LayoutOverrides="Height" Grid.Row="4" Background="{x:Null}" BorderBrush="#FF7E7E7E"
-              Foreground="#FF7E7E7E" Margin="0,14,0,0" BorderThickness="2" />
+              Foreground="#FF7E7E7E" Margin="0,14,0,0" BorderThickness="2"
+              Command="{Binding ExecuteLogin}"/>
       <RichTextBox IsReadOnly="True" Grid.Row="6" d:LayoutOverrides="GridBox" BorderBrush="#FFC6C6C6"
                    BorderThickness="2" Padding="10,4,2,8" Grid.ColumnSpan="2" Margin="0,120,0,0" FontSize="21.333" FontFamily="Segoe UI">
         <Paragraph TextAlignment="Justify" FontWeight="ExtraBold">
