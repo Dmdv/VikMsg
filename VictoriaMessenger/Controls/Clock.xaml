@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="VictoriaMessenger.Controls.Clock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Converters="clr-namespace:VictoriaMessenger.Converters"
+             xmlns:Helpers="clr-namespace:VictoriaMessenger.Helpers" mc:Ignorable="d" 
+             FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource PhoneFontSizeNormal}"
+             Foreground="{StaticResource PhoneForegroundBrush}" d:DesignHeight="480" d:DesignWidth="480">
+
+  <UserControl.Resources>
+    <Helpers:DateTimeProxy x:Key="TimeProxy" />
+    <Converters:TimeConverter x:Key="Formatter" />
+  </UserControl.Resources>
+
+  <Grid x:Name="LayoutRoot">
+        <TextBlock Text="{Binding Today, Source={StaticResource TimeProxy}, 
+            Converter={StaticResource Formatter}, ConverterParameter='dd MMM yyy'}" HorizontalAlignment="Right" />
+    </Grid>
+</UserControl>

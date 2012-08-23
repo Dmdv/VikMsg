@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{DC32954F-721C-4491-AEB1-A7DAC60390E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Json", "Json", "{1CE359C7-2D45-4AAF-BE3E-F138D146BFD5}"
+	ProjectSection(SolutionItems) = preProject
+		Solution items\Json\Newtonsoft.Json.WindowsPhone.dll = Solution items\Json\Newtonsoft.Json.WindowsPhone.dll
+		Solution items\Json\Newtonsoft.Json.WindowsPhone.pdb = Solution items\Json\Newtonsoft.Json.WindowsPhone.pdb
+		Solution items\Json\Newtonsoft.Json.WindowsPhone.xml = Solution items\Json\Newtonsoft.Json.WindowsPhone.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VictoriaMessenger", "VictoriaMessenger\VictoriaMessenger.csproj", "{4694D973-A37C-45F3-8B5B-353608A68910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VikaDataTypes", "VikaDataTypes\VikaDataTypes.csproj", "{84A5C2A6-37C9-4046-AB4D-91AA64A0E463}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VikaApi", "VikaApi\VikaApi.csproj", "{70AC4FF5-4318-410C-9DD3-BD9B0754364E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4694D973-A37C-45F3-8B5B-353608A68910}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4694D973-A37C-45F3-8B5B-353608A68910}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4694D973-A37C-45F3-8B5B-353608A68910}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4694D973-A37C-45F3-8B5B-353608A68910}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4694D973-A37C-45F3-8B5B-353608A68910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4694D973-A37C-45F3-8B5B-353608A68910}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{84A5C2A6-37C9-4046-AB4D-91AA64A0E463}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A5C2A6-37C9-4046-AB4D-91AA64A0E463}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A5C2A6-37C9-4046-AB4D-91AA64A0E463}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A5C2A6-37C9-4046-AB4D-91AA64A0E463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70AC4FF5-4318-410C-9DD3-BD9B0754364E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70AC4FF5-4318-410C-9DD3-BD9B0754364E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70AC4FF5-4318-410C-9DD3-BD9B0754364E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70AC4FF5-4318-410C-9DD3-BD9B0754364E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CE359C7-2D45-4AAF-BE3E-F138D146BFD5} = {DC32954F-721C-4491-AEB1-A7DAC60390E4}
+	EndGlobalSection
+EndGlobal

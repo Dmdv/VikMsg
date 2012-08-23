@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4694D973-A37C-45F3-8B5B-353608A68910}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VictoriaMessenger</RootNamespace>
+    <AssemblyName>VictoriaMessenger</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>VictoriaMessenger.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>VictoriaMessenger.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\DispatcherProxy.cs" />
+    <Compile Include="Commands\WeakEventHandlerManager.cs" />
+    <Compile Include="Controls\Clock.xaml.cs">
+      <DependentUpon>Clock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DarkHeader.xaml.cs">
+      <DependentUpon>DarkHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\TimeConverter.cs" />
+    <Compile Include="Helpers\DateTimeProxy.cs" />
+    <Compile Include="Helpers\Factory.cs" />
+    <Compile Include="Helpers\Resource.cs" />
+    <Compile Include="Resources\AppResource.Designer.cs">
+      <DependentUpon>AppResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Services\CommonErrorHandler.cs" />
+    <Compile Include="Services\ICommonErrorHandler.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="VmLocator.cs" />
+    <Compile Include="ViewModel\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Controls\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DarkHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CommonResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\Appbar_Icons\appbar.add.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-1.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-10.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-2.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-3.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-4.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-5.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-6.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-7.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-8.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.attachments-9.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.basecircle.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.cancel.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.checkin.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.delete.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.feature.camera.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.feature.search.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.forward.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.manage.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.minus.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.overflowdots.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.refresh.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.save.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.send.text.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.transport.pause.rest.png" />
+    <Resource Include="Images\Appbar_Icons\appbar.transport.play.rest.png" />
+    <Resource Include="Images\Map_Pin.png" />
+    <Resource Include="Images\Photo_Placeholder.png" />
+    <Resource Include="Images\Requests_Icon.png" />
+    <Resource Include="Images\Requests_Icon_Light.png" />
+    <Resource Include="Images\UnreadMessages_Icon.png" />
+    <Resource Include="Images\UnreadMessages_Icon_Light.png" />
+    <Resource Include="Images\VK_logotype.png" />
+    <Resource Include="Images\VK_logotype_Light.png" />
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResource.ru-Ru.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VikaApi\VikaApi.csproj">
+      <Project>{70AC4FF5-4318-410C-9DD3-BD9B0754364E}</Project>
+      <Name>VikaApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VikaDataTypes\VikaDataTypes.csproj">
+      <Project>{84A5C2A6-37C9-4046-AB4D-91AA64A0E463}</Project>
+      <Name>VikaDataTypes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>
