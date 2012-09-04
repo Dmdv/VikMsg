@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\ContextNotFoundException.cs" />
     <Compile Include="Interfaces\IServiceResult.cs" />
+    <Compile Include="Model\AccessToken.cs" />
     <Compile Include="Model\AuthorizationContext.cs" />
     <Compile Include="Model\AuthorzationStatus.cs" />
     <Compile Include="Model\Error.cs" />

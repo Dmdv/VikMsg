@@ -1,25 +1,25 @@
 using System;
-using System.IO;
-using System.Net;
 using System.Windows;
 using Microsoft.Phone.Controls;
+using Newtonsoft.Json;
 using VictoriaMessenger.Commands;
+using VictoriaMessenger.Networking;
 using VikaApi;
+using VikaApi.Storage;
 using Vk.Model;
 
 namespace VictoriaMessenger.ViewModel
 {
 	public class AuthorizationVm : BaseViewModel
 	{
-		// private const string AppId = "2416563";
 		private string _login;
 		private string _password;
 
 		public AuthorizationVm()
 		{
 			ExecuteLogin = new DelegateCommand<string>(DoLogin, CanLogin);
-			Login = "";
-			Password = "";
+			Login = "dimos-d@yandex.ru";
+			Password = "167390080$Perple";
 		}
 
 		public DelegateCommand<string> ExecuteLogin { get; set; }
@@ -65,18 +65,24 @@ namespace VictoriaMessenger.ViewModel
 		private void DoLogin(string obj)
 		{
 			var query = Authorization.Query(Login, Password);
-			var httpWebRequest = WebRequest.Create(query);
-			httpWebRequest.Method = "GET";
-			httpWebRequest.BeginGetRequestStream(OnRequestCompleted, httpWebRequest);
+			var client = new HttpClient(query);
+			client.DownloadStringCompleted += OnDownloadStringCompleted;
+			client.BeginDownloadString();
 		}
 
-		private void OnRequestCompleted(IAsyncResult ar)
+		private void OnDownloadStringCompleted(object sender, DownloadEventArg e)
 		{
-			var asyncState = (HttpWebRequest)ar.AsyncState;
-			using (var reader = new StreamReader(asyncState.EndGetRequestStream(ar)))
+			if (!e.Success)
 			{
-				string readToEnd = reader.ReadToEnd();
+				Dispatcher.BeginInvoke(
+					() => MessageBox.Show("Неправильный логин или пароль", "Ошибка авторизации", MessageBoxButton.OK));
+				//((PhoneApplicationFrame)Application.Current.RootVisual).GoBack();
+				return;
 			}
+
+			var token = JsonConvert.DeserializeObject<AccessToken>(e.Result);
+			ITypedDataStorage<AccessToken> storage = new TypedStorage<AccessToken>();
+			storage.SaveEntity(token);
 		}
 
 		private bool CanLogin(string arg)

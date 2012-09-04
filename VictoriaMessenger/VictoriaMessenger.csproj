@@ -52,6 +52,8 @@
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Newtonsoft.Json.WindowsPhone, Version=4.0.2.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -76,6 +78,8 @@
     <Compile Include="Helpers\DateTimeProxy.cs" />
     <Compile Include="Helpers\Factory.cs" />
     <Compile Include="Helpers\Resource.cs" />
+    <Compile Include="Networking\HttpClient.cs" />
+    <Compile Include="Networking\StringEventArgs.cs" />
     <Compile Include="Resources\AppResource.Designer.cs">
       <DependentUpon>AppResource.resx</DependentUpon>
       <AutoGen>True</AutoGen>
