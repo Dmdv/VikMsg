@@ -18,8 +18,8 @@ namespace VictoriaMessenger.ViewModel
 		public AuthorizationVm()
 		{
 			ExecuteLogin = new DelegateCommand<string>(DoLogin, CanLogin);
-			Login = "dimos-d@yandex.ru";
-			Password = "167390080$Perple";
+			Login = "";
+			Password = "";
 		}
 
 		public DelegateCommand<string> ExecuteLogin { get; set; }
@@ -75,7 +75,7 @@ namespace VictoriaMessenger.ViewModel
 			if (!e.Success)
 			{
 				Dispatcher.BeginInvoke(
-					() => MessageBox.Show("Неправильный логин или пароль", "Ошибка авторизации", MessageBoxButton.OK));
+					() => MessageBox.Show("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", MessageBoxButton.OK));
 				//((PhoneApplicationFrame)Application.Current.RootVisual).GoBack();
 				return;
 			}
